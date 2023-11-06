@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <link rel="stylesheet" href="../assets/css/articulo.css">
+    <link rel="stylesheet" href="../assets/css/print.css" media="print">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Mundo cripto - BlockChain</title>
+    
+</head>
+<body>
+    <header>
+        <h1><a href="../index.html">Mundo cripto</a></h1>
+    </header>
+    <main>
+        <nav class="Menu">
+            <input type="checkbox" name="menu" id="menu">
+            <span class="Menu-header" id="arriba">
+                <label for="menu"> <h3>Menú</h3> </label>
+            </span>
+            <ul class="Menu-lista">
+                <li><a href="./tema1.html">Bitcoin</a></li>
+                <li><a href="./tema2.html">Blockchain</a></li>
+                <li><a href="./tema3.html">Wallets</a></li>
+                <li><a href="./tema4.html">Ethereum</a></li>
+                <li><a href="../contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <section class="Contenido">
+            <div class="Volver">
+                <a href="#arriba">    
+                    <span class=" material-symbols-outlined">                        
+                        expand_less
+                    </span>
+                </a>
+            </div>
+            <aside class="Articulo-menu ">
+                <input type="checkbox" name="menu1" id="menu1">
+                <label for="menu1"> <h3>Contenido</h3> </label>
+                <ul class="Articulo-contenido">
+                    <li><a href="#parte1">¿Qué es?</a></li>
+                    <li><a href="#parte2">Mineria</a></li>
+                    <li><a href="#parte3">Funcionamiento</a></li>
+                    <li><a href="#parte4">Beneficios</a></li>
+                    <li><a href="#parte5">Usos</a></li>
+                    <li><a href="#biblografia">Biblografía</a></li>
+                </ul>
+            </aside>
+    
+            <article class="Articulo">
+                <span class="Articulo-header">
+                    <h2>Blockchain</h2>
+                    <img class="img2" src="../assets/img/blockchain.png" alt="blockchain-img">
+                </span>
+                <div>
+                    <h3 id="parte1">¿Qué es la blockchain?</h3>
+                    <p>
+                        Pes un gigantesco libro de cuentas en los que los registros (los bloques) están enlazados y cifrados para proteger la seguridad y privacidad de las transacciones. Es, en otras palabras, una base de datos distribuida y segura (gracias al cifrado) que se puede aplicar a todo tipo de transacciones que no tienen por qué ser necesariamente económicas.
+                    </p>
+                    <p>
+                        Esa cadena de bloques tiene un requisito importante: debe haber varios usuarios (nodos) que se encarguen de verificar esas transacciones para validarlas y que así el bloque correspondiente a esa transacción (en cada bloque hay un gran número de transacciones que eso sí, es variable) se registre en ese gigantesco libro de cuentas.
+                    </p>
+                    <p>
+                        A medida que pasa el tiempo, más y más transacciones van completándose y pasando a ese bloque, que tiene una capacidad limitada que depende de la estructura de la cadena de bloques y del tamaño de cada transacción. Cuando un bloque ya no admite más transacciones, llega un momento importante: el de "validarlo" o "sellarlo", que es lo que los usuarios hacen cuando hacen minería de bitcoin(no necesariamente tiene que ser de bitcoin).
+                    </p>
+                    <p>Página para ver los bloques de bitcoin: <a href="https://www.blockchain.com/explorer/blocks/btc?page=1" target="_blank">aquí</a> o <a href="https://blockchair.com/es/bitcoin/blocks" target="_blank"> aquí</a> .</p>
+                </div>
+                <div>
+                    <h3 id="parte2">Mineria</h3>
+                    <p>
+                        El minado consiste en la realización de una serie de complejos cálculos que requieren tiempo y (cada vez más) electricidad, pero cuando el proceso esos bloques quedan registrados de forma permanente en esa cadena de bloques, y no pueden ser modificados sin que se alteren todos los bloques que están enlazados con él, una operación que además necesitaría que la mayoría de los nodos la validasen. Para esto actualmente se usan placas de video. Hay dos formas de validar bloques.
+                    </p>
+                
+                    <h4><b lang="en">PoW - Proof of Work</b></h4>
+                   <p>
+                    PoW es un protocolo que se utiliza como prueba de barrera para impedir acciones no deseadas sobre las redes en las que se aplica. Tanto desde el punto de vista de los ataques de denegación de servicios como otro tipo de acciones.
+                    <br>
+                    Se trata de tareas realizadas por ordenadores, que pueden ser más o menos complejas para quien las resuelve, pero que son muy rápidas en cuanto a su verificación. Contribuyen a generar una solución rápida y eficaz para evitar cuellos de botella en la seguridad de una red.
+                    </p>
+                    <h4><b lang="en">PoS - Proof of Stake</b></h4>
+                    <p>
+                        Prueba de participación es, junto a <b lang="en">Proof of Work</b> una de las principales herramientas de creación y gestión de bloques en las cadenas de bloques, contribuyendo también a la seguridad y estabilidad de las redes (que soportan a las criptomonedas).
+                    </p>
+                    <p>
+                        Se trata de uno de los principales métodos de control y gestión de las cadenas de bloques. Se considera como la segunda herramienta, por detrás de <b lang="en">Proof of Work</b>, en cuanto a su aplicación en las Blockchains.
+                    </p>
+                    <p>
+                        Se trata de un protocolo que pretende la sustitución en la cadena de bloques del modelo de gobernanza de <b lang="en">Proof of Work</b> . La finalidad de ambos es la misma: generar consensos que apoyan a la cadena de bloques en la creación de seguridad y generación de incentivo para las transacciones.
+                    </p>
+                    <p>
+                        Se trata de un protocolo sencillo, que aporta un gran nivel de seguridad (cuanto más grande sea la red de minería de la criptomoneda más grande será la seguridad). Por otro lado, se puede implementar para diferentes modelos de hardware, siendo muy adaptable a nuevos entornos tecnológicos.
+                    </p>
+                    <br>
+                    <p>
+                        De hecho añadir nuevos bloques es un proceso cada vez más costoso, lo que hace normalmente que los mineros trabajen agrupados (los famosos "pools" que funcionan de forma similar a una cooperativa) en lugar de trabajar por sí mismos ("solo mining", con unas probabilidades de éxito/recompensa muy bajas). Cuando uno de los mineros resuelve el problema criptográfico que representan los cálculos para "sellar" un bloque, avisa a los demás, que comprueban que efectivamente es así y añaden ese bloque a la cadena de bloques completa que tienen en sus ordenadores.
+                    </p>
+                    <p>
+                        Ese libro de cuentas no solo está distribuido y es seguro: los bloques enlazados (de ahí lo de cadena de bloques) cuentan con un puntero hash (codificado) que enlaza al bloque anterior, además de una marca de tiempo y los datos de la transacción, y esa información es pública. ¿Qué significa eso? Que la cadena de bloques, aunque protege la privacidad de sus usuarios, sí que permite controlar la trazabilidad de esas transacciones.
+                    </p>
+                </div>
+                <div>
+                    <h3 id="parte3">Funcionamiento</h3>
+                    <p>
+                        <b>A medida que se produce una transacción, se registra como un "bloque" de datos.</b>
+                        <br>
+                        Estas transacciones muestran el movimiento de un activo, el cual puede ser tangible (un producto) o intangible (intelectual). El bloque de datos puede registrar la información de su elección: quién, qué, cuándo, dónde, cuánto e incluso la condición, como la temperatura de un envío de alimentos.
+                    </p>
+                    <p>
+                        <b>Cada bloque está conectado al bloque anterior y al bloque posterior.</b>
+                        <br>
+                        Estos bloques forman una cadena de datos a medida que un activo se mueve de un lugar a otro o cambia de dueño. Los bloques confirman tanto el tiempo exacto como la secuencia de las transacciones y se unen de forma segura para evitar que se alteren o se inserten entre dos bloques existentes.
+                    </p>
+                    <p>
+                        <b>Las transacciones se unen y forman una cadena irreversible: un blockchain.</b>
+                        <br>
+                        Cada bloque adicional refuerza la verificación del bloque anterior y, por lo tanto, de todo el blockchain. Esto hace que dicha cadena sea a prueba de manipulaciones, lo que constituye la ventaja principal de la inalterabilidad. Esto evita que alguien malintencionado modifique la cadena y crea un libro mayor distribuido de transacciones en la que usted y otros miembros de la red pueden confiar.
+                    </p>
+                </div>
+                <div>
+                    <h3 id="parte4">Beneficios</h3>
+                    <p>
+                        <b>1) Mayor confianza: </b> Si utiliza una red privada a la que solo los miembros tienen acceso, con blockchain tiene la seguridad de que recibirá datos precisos y oportunos, además de que sus registros de blockchain confidenciales se compartirán solo con miembros específicos de la red a los que haya autorizado.
+                    </p>
+                    <p>
+                        <b>2) Mayor seguridad: </b> Todos los miembros de la red deben llegar a un consenso acerca de la precisión de los datos y todas las transacciones validadas son inalterables ya que se registran de forma permanente. Nadie, ni siquiera un administrador del sistema, puede suprimir una transacción.
+                    </p>
+                    <p>
+                        <b>3) Más eficiencia: </b> Con un libro mayor distribuido compartido entre los miembros de una red, se elimina el tiempo perdido en las acciones de conciliación de registros. Y para acelerar las transacciones, un conjunto de reglas, llamado contrato inteligente, se almacena en el blockchain y se ejecuta automáticamente.
+                    </p>
+                </div>
+                <div>
+                    <h3 id="parte5">Usos</h3>
+                    <p>
+                        Aunque la cadena de bloques está íntimamente relacionada con las nuevas criptodivisas o criptomonedas, es lógico preguntarse si este sistema sería válido para otro tipo de transacciones, y la respuesta es un rotundo sí.
+                    </p>
+                    <p>
+                        De hecho eso es lo que está intentando lograr desde sus inicios la plataforma Ethereum, que tiene su propia cadena de bloques (podéis echarle un vistazo en sitios como <a href="https://etherscan.io/" target="_blank"> Etherscan.io</a>) y su propia moneda, llamada Ether.
+                        A diferencia de bitcoin, las transacciones aquí son los contratos inteligentes —los programadores aman este concepto—, que pueden ser más o menos complejos y que permiten definir todo tipo de transacciones. 
+                        <a href="./tema4.html">Más info...</a>
+                        <br>
+                        Algunas ideas son:
+                    </p>
+                    <p>
+                        Registro de propiedades: el gobierno japonés <a href="https://www.cryptocoinsnews.com/japan-place-entire-property-registry-blockchain/" target="_blank">ha iniciado un proyecto</a> para unificar todo el registro de propiedades urbanas y rústicas con tecnología de cadena de bloques, lo que permitiría contar con una base de datos abierta en la que se pudieran consultar los datos de las 230 millones de fincas y 50 millones de edificios que se estima existen en el país asiático. En Dubai <a href="https://www.cryptocoinsnews.com/100-dubai-put-entire-land-registry-blockchain/" target="_blank">están planeando</a> algo muy parecido.
+                    </p>
+                    <p>
+                        Pagos en el mundo real: una startup llamada <a href="https://www.tenx.tech/" target="_blank" >TenX</a>  ha creado una tarjeta prepago que se puede recargar con distintas criptodivisas para luego pagar con ella en cualquier sitio como si esa tarjeta tuviera dinero convencional, sin importar si ese establecimiento acepta o no este tipo de monedas virtuales.
+                    </p>
+                    <p>
+                        Almacenamiento en la nube: normalmente los servicios de almacenamiento están centralizados en un proveedor específico, pero la empresa  <a href="https://www.storj.io/" target="_blank">Storj</a> quiere descentralizar este servicio para mejorar la seguridad y reducir la dependencia de ese proveedor de almacenamiento.
+                    </p>
+
+                </div>
+                <div>
+                    <h3 id="biblografia">Biblografía</h3>
+                    <ol>
+                        <li><a href="https://www.xataka.com/especiales/que-es-blockchain-la-explicacion-definitiva-para-la-tecnologia-mas-de-moda" target="_blank">¿Qué es blockchain?</a></li>
+                        <li><a href="https://finanzas.roams.es/academia/criptomonedas/proof-of-work/" target="_blank">Proof of Work</a></li>
+                        <li><a href="https://finanzas.roams.es/academia/criptomonedas/proof-of-stake/" target="_blank">Proof of Stake</a></li>
+                        <li><a href="https://www.ibm.com/ar-es/topics/what-is-blockchain" target="_blank">IBM</a></li>
+                    </ol>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>©Desarrollado por Bravo Juan Alé</p>
+    </footer>
+
+</body>
+</html>

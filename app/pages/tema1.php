@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../assets/img/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/nav.css">
+    <link rel="stylesheet" href="../assets/css/articulo.css">
+    <link rel="stylesheet" href="../assets/css/print.css" media="print">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <title>Mundo cripto - Bitcoin</title>
+</head>
+<body>
+    <header>
+        
+        <h1><a href="../index.html">Mundo cripto</a></h1>
+    </header>
+    <main>
+        <nav class="Menu">
+            <input type="checkbox" name="menu" id="menu">
+            <span class="Menu-header" id="arriba">
+                <label for="menu"> <h3>Menú</h3> </label>
+            </span>
+            
+            <ul class="Menu-lista">
+      
+                <li><a href="./tema1.html">Bitcoin</a></li>
+                <li><a href="./tema2.html">Blockchain</a></li>
+                <li><a href="./tema3.html">Wallets</a></li>
+                <li><a href="./tema4.html">Ethereum</a></li>
+                <li><a href="../contacto.html">Contacto</a></li>
+            </ul>
+        </nav>
+        <section class="Contenido">
+            <div class="Volver">
+                <a href="#arriba">    
+                    <span class=" material-symbols-outlined">                        
+                        expand_less
+                    </span>
+                </a>
+            </div>
+            
+            <aside class="Articulo-menu ">
+                <input type="checkbox" name="menu1" id="menu1">
+                <label for="menu1"> <h3>Contenido</h3> </label>
+                <ul class="Articulo-contenido">
+                    <li><a href="#parte1">¿Qué es?</a></li>
+                    <li><a href="#parte2">Historia</a></li>
+                    <li><a href="#parte3">Funcionamiento</a></li>
+                    <li><a href="#parte4">Mitos</a></li>
+                    <li><a href="#biblografia">Biblografía</a></li>
+                </ul>
+            </aside>
+    
+            <article class="Articulo">
+                <span class="Articulo-header">
+                    <h2>Bitcoin</h2>
+                    <img src="../assets/img/bitcoin.svg" alt="bitcoin-img">
+                </span>
+                <div>
+                    <h3 id="parte1">¿Qué es bitcoin?</h3>
+                
+                    <p>
+                        Bitcoin es la primera moneda digital usada y distribuida de forma electrónica.
+                        Se trata de una red descentralizada de igual a igual donde no participa ninguna institución en su control.
+                    </p>
+                    
+                    <p>
+                        ¡Un dato importante a saber es que los bitcoins son finitos!
+                        
+                        Existen únicamente 21.000.000 de Bitcoin y en 2021 hay 18.500.000 en circulación, es decir que en un futuro se va a haber «emitido» la cantidad total de Bitcoin en el mundo.
+                    </p>
+                    <p>
+                        Bitcoin alcanzó su valor máximo histórico (ATH) en USD 67.276 por 1 BTC. En este artículo queremos explicarte todo sobre bitcoin y cómo funciona.
+
+                        Se trata de una moneda finita y muchos consideran a Bitcoin como el oro digital.
+                    </p>
+                    <p>
+                        Algunas personas se refieren a bitcoin como una criptomoneda, mientras que otras usan moneda digital o moneda virtual. La realidad es que todos estos términos son correctos: <i>Bitcoin es dinero digital.</i>
+                    </p>
+                    <img src="../assets/img/tema1-1.png" alt="Bitcoin img">
+                </div>
+                <div>
+                    <h3 id="parte2">Historia</h3>
+                
+                    <p>
+                        El 31 de octubre de 2008, una persona anónima (o grupo de personas) que se hacía llamar Satoshi Nakamoto publicó un documento en internet titulado «Papel de efectivo electrónico P2P de Bitcoin». En él había un enlace a un documento técnico llamado «Bitcoin: un sistema de efectivo electrónico de igual a igual» que detallaba el diseño de un una infraestructura financiera global basada en pruebas criptográficas en lugar de solo confianza. Ambos todavía están disponibles en línea.
+                    </p>
+                    <p>
+                        Y aunque no sepamos quién es o era Satoshi Nakamoto, sí conocemos lo que hizo: inventó el protocolo bitcoin y lo publicó en un artículo científico a través de la Cryptography Mailing List. Como parte de la implementación, Nakamoto además también diseñó la primera base de datos blockchain.
+                    </p>
+                    <p>
+                       <time datetime="2009-01-09">El 9 de enero de 2009</time> , Nakamoto liberó la versión 0.1 del cliente de Bitcoin (hoy conocido como <a title="Link para su descarga." href="https://bitcoin.org/en/bitcoin-core/" target="_blank">Bitcoin Core</a>), un software de código abierto que conectaba varias computadoras entre sí, y esto dio origen a la red que soportaría la criptomoneda. Las tareas de la red eran permitir transacciones entre usuarios, hacer una lista de todas las transacciones, verificar que no se gaste dos veces la misma moneda y emitir nuevas unidades monetarias.
+                    </p>
+              
+                    <p>
+                        Luego de un año se llevó a cabo la primera transacción económica con Bitcoin cuando un hombre de Florida negoció para que dos pizzas de Papa John’s, (valoradas en $25) se entregaran por 10,000 bitcoins el 22 de mayo de 2010. En ese momento 10.000 BTC equivalían a 40 dólares estadounidenses aproximadamente. Al día de hoy (28/10/2021), esa misma transacción tendría un valor de 114 millones de dólares. En honor a este momento crucial, los fans y partidarios de las criptomonedas convocan el 22 de mayo como Día de la Pizza, o “Pizza Day”.
+                    </p>
+                    <p>
+                        En 2011, los mineros y codificadores comenzaron a construir otras redes como Ethereum y Litecoin y mejoraron el código detrás de la blockchain de Bitcoin, adaptándolo para diferentes usos. También hubo un aumento en el uso de Bitcoin como moneda una vez que empresas reconocidas comenzaron a aceptar esta crypto junto con la moneda tradicional.
+                        Una vez que Bitcoin estuvo disponible dentro de la inversión en divisas en el año 2010, se volvió más fácil de comprar, vender, comerciar y almacenar.
+                        
+                    </p>
+                    <p>
+                        <time datetime="2011-04-26">El 26 de abril de 2011</time>, Wikileaks promocionó el documento de BTC, Nakamoto desapareció y nunca más se supo de él. Su penúltima publicación sobre Bitcointalk dice: “Hubiera sido bueno recibir esta atención en cualquier otro contexto. WikiLeaks ha pateado el nido de avispas y el enjambre se dirige hacia nosotros».
+                    </p>
+                </div>
+                <div>
+                    <h3 id="parte3">Wallets</h3>
+                    <p>
+                        
+                        Una dirección de bitcoin es un identificador único de nuestra wallet que nos va a servir para enviar, almacenar y recibir transacciones.
+                        Hay diferentes tipos de direcciones que fueron surgiendo a lo largo de los años, pero en general tienen un aspecto parecido a este: 
+    
+                        bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh.
+                        <a href="./tema3.html">Más Info...</a>
+
+                    </p>
+                </div>
+                <div>
+                        <h3 id="parte4">Mitos</h3>
+                        <p>
+                            <b>Mito 1: La emisión de Bitcoin es ilimitada.</b> Al igual que el oro y otros metales preciosos, el suministro de bitcoins es más o menos fijo. El protocolo de Bitcoin establece que su suministro total no podrá exceder los 21 millones de Bitcoin.
+                            <br>
+                            Un bitcoin se puede subdividir en monedas fraccionarias, por lo que su utilidad para pagar cosas no está limitada por una oferta limitada. La unidad más pequeña de un bitcoin se llama Satoshi, en honor a Satoshi Nakamoto, el supuesto inventor de la moneda. Un Satoshi es una cien millonésima parte de un bitcoin (0,00000001).
+                        </p>
+                        <p>
+                            <b>Mito 2:  Bitcoin depende de una entidad bancaria central.</b> Bitcoin es independiente de entidades gubernamentales como los bancos centrales que tradicionalmente controlan la oferta monetaria y la disponibilidad de papel moneda. 
+                            <br>
+                            En cambio, los saldos se mantienen colectivamente, se asocian con direcciones y las transferencias son aprobadas por el titular utilizando algoritmos matemáticos imposibles de falsificar realizadas por mineros.
+                        </p>
+                        <p>
+                            <b>Mito 3: No puedo hacer compras del día a día con Bitcoin.</b> Hoy en día, cada vez son más comercios los que aceptan pagar con bitcoin alrededor del mundo. Además, con tu Lemon Card vas a poder usar tus crypto para pagar compras del día a día en todo el mundo en comercios que acepten pagos de VISA, usando tus crypto para pagar en cualquier moneda fiduciaria y recibiendo cashback en bitcoin por cada compra que realices.
+
+                        </p>
+                </div> 
+                <div>
+                    <h3 id="biblografia">Biblografía</h3>
+                    <ol>
+                        <li><a href="https://wiki.lemon.me/bitcoin-btc/">Lemon Wiki</a target="_blank"></li>
+                        <li><a href="https://bitcoin.org/es/" target="_blank">Sitio oficial de Bitcoin</a></li>
+                        <li><a href="https://wiki.lemon.me/que-es-una-direccion-bitcoin/" target="_blank">Wallets</a></li>
+                    </ol>
+                </div>
+            </article>
+        </section>
+    </main>
+    <footer>
+        <p>©Desarrollado por Bravo Juan Alé</p>
+    </footer>
+
+</body>
+</html>
