@@ -1,58 +1,27 @@
 # MundoCripto
-Trabajo Final EDI1
+Trabajo Final EDI2
 
-Consiga del trabajo final:
+Consiga del trabajo final, es crear un sistema web con lo visto en clase.
 
-Entregar una documentación que contenga todos los
-accesos a los hostings, los dominios y cuentas involucradas en el proyecto, así
-como también dejar esta información a disposición del instituto. Concretamente
-el servidor , usuario y clave para acceder al FTP de la cuenta de
-hosting. Esta Documentación quedará en manos del docente y una copia
-en la biblioteca del instituto. 
-IMPORTANTE: este punto es determinante para
-poder aprobar el final. (Imprimir datos del hosting en una hoja a4, por
-duplicado)
+Módulo Temático 1: Introducción a PHP
+ ¿Qué es PHP?, ¿Qué puede hacer PHP?, ¿Qué necesito?, tipos de variables, variables
+reservadas.
 
-Presentación-defensa de un sitio Web con las siguientes características:
+Módulo Temático 2: Estructuras de control
+ if, else, elseif/else if, while, do-while, for, foreach, break, continue, switch, declare,
+return, require, include, require_once, include_once, goto, vectores y matrices
 
-.Que todos los conocimientos de la materia estén
-contemplados en el proyecto.
+Módulo Temático 3: Funciones
+ Funciones definidas por el usuario, argumentos de funciones, devolver valores.
+ Funciones propias de PHP.
 
-.El proyecto se presentará en forma grupal (máximo 2
-integrantes) o individual y se defenderá oralmente explicando el trabajo
-realizado.
+Módulo Temático 4: Formularios
+ Tratar con formularios, Variables desde fuentes externas (métodos GET y POST)
 
-.Se tomará en cuenta la manera en la que se refiere
-verbalmente a los términos que se quieren explicar: elementos, reglas,
-propiedad, valor, atributo, cada cosa a explicar tiene su nombre.
+Módulo Temático 5: MySQL
+ Creación de una base de datos con mysql, tablas, campos, registros, modelo relacional,
+consultas (CREATE, INSERT, UPDATE, DROP, ALTER, SELECT)
 
-.Todos los enlaces del proyecto deben funcionar
-correctamente.
-
-.El proyecto consiste en crear una página web de una
-organización, emprendimiento o tema de interés. Puede ser un caso real o un
-prototipo. El sitio debe estar publicado en la Web y registrado en un dominio o
-en un subdominio.
-
-.El estudiante debe ser capaz de defender su trabajo
-en forma oral.
-
-.El sitio debe tener al menos 5 o 6 páginas: (Contacto,
-inicio, pagina 3, página 4, página 5) 
-
-.El sitio web deberá visualizarse correctamente tanto
-en celulares como en la PC, esos 2 formatos al menos.
-
-Uso de Frameworks y otros lenguajes:
-
-
-Se pueden usar Frameworks en funcionalidades puntuales
-del sitio, como puede ser una galería o algún efecto. Sin embargo la parte
-estructural y la mayoría del total del código fuente debe escribirse en XHTML o
-HTML 5  y CSS. Si algún estudiante quiere
-añadir funcionalidades en Javascript puro, es libre de hacerlo.
-
-PD: Opcionalmente, antes de la fecha del examen pueden
-enviarme la dirección web del proyecto para acortar el tiempo de
-evaluación. Recibo la última versión del proyecto 3 días antes de la fecha
-de examen.
+Módulo Temático 6: MySQL y PHP
+ Conexión a mysql desde php, sesiones, conexiones persistentes a bases de datos,
+consultas desde php.
