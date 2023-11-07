@@ -16,6 +16,31 @@ form fieldset{
     border:none;
 }
 
+
+.Form{
+max-width:50em;
+}
+.Form--content{
+    display: flex;
+    
+    gap: 2em;
+    overflow-x: scroll;
+    width:100%;
+    
+}
+.Form--part{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+
+.Form--options{
+    display: flex;
+    flex-direction: row;
+}
+
+
 form input::placeholder, form textarea::placeholder{
     color:#000;
 }
@@ -29,7 +54,6 @@ form input, form select, form textarea{
     border: none;
     border-bottom: 3px solid white;
     background: none;
-    
     margin: 5px 0px;
     border-radius: 2px;
     font-size: 15px;
@@ -45,6 +69,7 @@ form input[type=submit]{
     background-color: var(--c2);
     border-radius: 5px;
 }
+
 form a{
     align-self: center;
     font-size: .9rem;
@@ -54,7 +79,7 @@ form a{
     padding: .6em;
     transition: 1s;
     border-radius: 3px;
-    background-color:rgba(0, 0, 0, 0.3);
+    background-color:rgba(105, 71, 71, 0.3);
 }
 form input:focus{
     outline-color: white;

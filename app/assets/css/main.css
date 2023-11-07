@@ -30,8 +30,9 @@ main{
     display: flex;   
     flex-direction: column;
     gap: 3em;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: left;
+    padding: 2em 2em;
     animation-timing-function: ease;
     animation-name: main1;
     animation-duration: 9s;

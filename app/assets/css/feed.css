@@ -1,8 +1,11 @@
 
+
 .Posts{
     display:flex;
-    flex-direction:column;
-    gap:2em;
+    
+    flex-flow:row wrap;
+    max-width: 90%;
+    gap:1em;
     
 }
 .Post--nuevo a{

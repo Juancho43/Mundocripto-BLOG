@@ -13,10 +13,12 @@ class UserController{
     $query = $this->database->query($sql);
     $ok = false;
     if ($query->num_rows > 0){
+      $iduser = $query->fetch_assoc()['iduser'];
       $_SESSION["email"] = $mail;
       $_SESSION["online"] = true;
       $_SESSION["msg"] = "Bienvenido";
       $_SESSION["id"] = session_id();
+      $_SESSION["iduser"] = $iduser;
       $ok=true;
     }else{
       $_SESSION["online"] = false;
@@ -48,6 +50,14 @@ class UserController{
     $this->database->close();
     $_SESSION["msg"] = "Usuario correctamente registrado.";
     $this->login($mail,$password);
+  }
+
+  public function searchUserId($mail){
+
+    $sql = "SELECT iduser FROM users WHERE email='$mail'";
+    $query = $this->database->query($sql);
+    $iduser = $query->fetchColumn();
+    return $iduser;
   }
 
   public function showUser($mail){
