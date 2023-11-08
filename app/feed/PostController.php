@@ -2,11 +2,48 @@
 class PostController{
     public function __construct($link) {
     $this->database = $link;
-    
   }
+  public function showParagraps($idPost){
+    $sql ="SELECT contents.paragraph from contents where idpost = '$idPost';
+    ";
+     $query = $this->database->query($sql);
+     $data =array();
+     if ($query->num_rows > 0) {
+        
+         while($row = $query->fetch_assoc()) {
+             $data[] = $row;
+         }
+       } else {
+             $data = "0 results";
+       }
+       
+       return $data;
+  }
+  
+
+  public function showPost($idPost){
+    $sql ="SELECT posts.title, posts.idpost, changes.date
+    FROM posts
+    INNER JOIN changes on posts.idpost = changes.entityid
+    where posts.idpost = $idPost AND changes.action = 'new'
+    ";
+     $query = $this->database->query($sql);
+     $data =array();
+     if ($query->num_rows > 0) {
+        
+         while($row = $query->fetch_assoc()) {
+             $data[] = $row;
+         }
+       } else {
+             $data = "0 results";
+       }
+       
+       return $data;
+  }
+  
   public function showOwnPost($inicio,$final){
     $userId = intval($_SESSION["iduser"]);
-    $sql = "SELECT DISTINCT posts.title, users.nickname, posts.publish,
+    $sql = "SELECT DISTINCT posts.title, users.nickname, posts.publish, posts.idpost,
     (SELECT contents.paragraph FROM contents WHERE contents.idpost = posts.idpost LIMIT 1) AS paragraph
     FROM posts
     INNER JOIN users ON users.iduser = posts.iduser
@@ -30,9 +67,8 @@ class PostController{
   }
 
   public function showPosts($inicio,$final){
-    $sql = "SELECT DISTINCT  posts.title,users.nickname,  (SELECT contents.paragraph FROM contents WHERE contents.idpost = posts.idpost LIMIT 1) AS paragraph FROM posts 
+    $sql = "SELECT DISTINCT  posts.idpost,posts.title,users.nickname,  (SELECT contents.paragraph FROM contents WHERE contents.idpost = posts.idpost LIMIT 1) AS paragraph FROM posts 
     INNER join users on users.iduser = posts.iduser
- 
     WHERE posts.publish = 1
     LIMIT $inicio,$final;
     ";

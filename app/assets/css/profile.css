@@ -1,9 +1,10 @@
 
-main{    
-    flex-flow:row wrap;
+.Ver--Profile{
+    
+    align-items:flex-start;
 }
-
 .Profile{
+    margin:2em;
     background-color: aliceblue;
     border-radius:5px;
     padding: 2em;

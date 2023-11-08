@@ -1,27 +1,51 @@
-
-
+.Ver--posts{
+    align-items:flex-start;
+}
+.Ver--posts .Post{
+    min-width: calc(90vw - 20%);
+    margin: 1em;
+}
+.Ver--posts .Comments{
+    min-width: calc(90vw - 20%);
+    background-color: wheat;
+    border-radius:5px;
+    padding: .4em;
+    margin: 0 0 0 1em;
+}
 .Posts{
     display:flex;
-    
     flex-flow:row wrap;
     max-width: 90%;
     gap:1em;
+    padding:1em;
     
 }
+.Post--nuevo{
+    padding:1em;
+}
 .Post--nuevo a{
-    background-color: wheat;
+    background-color: aliceblue;
+    font-family: 'Cabin', serif;
     border-radius:5px;
     padding: .4em;
     color:black;   
     align-self:center;
     cursor:pointer;
 }
+.Post--nuevo a:hover{
+    transition-duration: .4s;
+    background-color: #f7931a;
+    color:white;
+}
 .Post{
     background-color: aliceblue;
     border-radius:5px;
-    padding: 2em;
+    padding: 1em;
 }
-
+.Post:hover{
+    transition: .4s;
+    box-shadow: 3px 3px  10px aliceblue;
+}
 .Post .Post--title{
     font-family: 'Roboto Slab', serif;
     text-transform:uppercase;
@@ -38,4 +62,25 @@
 .Post .Post--paragraph{
     font-family: 'Lato', serif;
     font-size:smaller;
+}
+
+@media screen and (min-width: 700px) and (max-height:700px){
+
+    .texto{
+        font-size:2em;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    main{
+        height: calc(100vh - 6em);
+    }
+    .Post--nuevo{
+        display: flex;
+        gap:5px;
+        justify-content:space-between;
+    }
+    .Posts{
+        flex-direction:column;
+    }
 }

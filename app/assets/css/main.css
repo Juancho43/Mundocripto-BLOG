@@ -10,10 +10,8 @@
         background-position: 0% 50%;
     }  
 }
-
-
 a{
-    color: #fff;
+    color:black;
     text-decoration: none;  
 }
 a.texto{
@@ -26,17 +24,13 @@ a.texto:hover{
 main{
     background: linear-gradient(217deg, rgba(247,147,26,1) 23%, rgba(26,126,247,1) 69%);
     background-size: 250%;
-    width: 100%;
-    display: flex;   
     flex-direction: column;
-    gap: 3em;
-    justify-content: flex-start;
-    align-items: left;
-    padding: 2em 2em;
+    gap: 1em;
     animation-timing-function: ease;
     animation-name: main1;
     animation-duration: 9s;
-    animation-iteration-count: 1;
+    animation-iteration-count:infinite;
+    
 }
 .texto{
     user-select: none;

@@ -14,34 +14,40 @@ $data = $posts->showPosts(0,10);
 ?>
 <link rel="stylesheet" href="../assets/css/feed.css">
 <main>
-<section class="Post--nuevo">
+<?php  
+if($_SESSION["online"]){
+    ?>
+    <section class="Post--nuevo">
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/nuevo-post.php'">Crear publicación.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/ver-posts.php'">Ver publicaciones.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/ver-comentarios.php'">Ver comentarios.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/users/profile.php'">Ver perfil.</a>
     </section>
+    <?php
+    }
+    ?>
     <div class="Posts">
         
    
-<?php
 
-if($_SESSION["online"]){
-    ?>
+
+
+    
 
   
     
     <?php
-}
+
 
 for($c = 0; $c < count($data);$c++){
     ?>
-    <section class="Post">
-        <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
-        <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>
-
-        <p class="Post--paragraph"><?=$data[$c]["paragraph"]?></p>
-    </section>
-    
+    <a class="Post--link" href="ver-post.php?id=<?=$data[$c]["idpost"]?>">
+        <section class="Post">
+            <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
+            <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>
+            <p class="Post--paragraph"><?=$data[$c]["paragraph"]?></p>
+        </section>
+    </a>
     <?php
     
 }

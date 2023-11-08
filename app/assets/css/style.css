@@ -25,31 +25,52 @@ header,footer{
     padding: 0 1em;
 }
 footer{
+    color: white;
     font-size: medium;
+    align-items: center;
+    text-align: center;
+}
+footer:hover{
+    color: #F7931A;
 }
 
 header h1 a{
-
     font-family: 'Roboto Slab', serif;
     font-size: .8em;
     font-weight: 500;
     color: #F7931A;
+    cursor: pointer;
 }
+
+header h1 a::before{
+    content:"#";
+    color:white;
+}
+header h1 a:hover{
+    transition: .4s;
+    color:white;
+}
+
 header ul{
     list-style:none;
     display:flex;
     gap:1em;
+    
+}
+header ul a{
+    color: white;
+    font-family: 'Cabin', serif;
+}
+header ul a:hover{
+    
+    cursor:pointer;
+    text-decoration:underline;
+    text-decoration-color:#F7931A;
 }
 main{
     display: flex;   
     width: 100%;
     height: 90%;
-}
-section > article{
-    border-radius: 2%;
-    background-color: rgba(212, 212, 212,30%);
-    padding: 1em;
-    align-self: flex-start;    
 }
 
 @media screen and (max-width: 700px) {
@@ -60,10 +81,22 @@ section > article{
       
     }
     header, footer{
-        height: 3em;
-    }
-    main{
-        flex-direction: column;
         
+        flex-direction: column;
     }
+    footer{
+        height:1.5em;
+        justify-content:center;
+    }
+    header{
+        
+        align-items:center;
+        gap:3px;
+        padding:.4em;
+    }
+    
+    main{
+        flex-direction: column;   
+    }
+
 }

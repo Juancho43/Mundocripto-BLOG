@@ -13,7 +13,7 @@ $userData = $user->showUser($_SESSION["email"]);
 
 ?>
 <link rel="stylesheet" href="../assets/css/profile.css">
-<main>
+<main class="Ver--Profile">
 
     <section class="Profile">
         <h3><?=$userData[0]["nickname"]?></h3>

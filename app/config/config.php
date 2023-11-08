@@ -21,3 +21,8 @@
    // Devuelve la URL del archivo PHP actual.
    return $_SERVER['SCRIPT_NAME'];
  }
+
+ if(empty($_SESSION["online"])){
+   $_SESSION["online"] = false;
+   $_SESSION["msg"] = "Para poder interacturar inicie sesión.";
+}

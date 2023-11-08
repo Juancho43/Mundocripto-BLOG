@@ -7,7 +7,7 @@ require("UserController.php");
 
 if(isset($_POST["singin"])){
     $user = new UserController($link);
-    $user->login($_POST["nickname"],$_POST["mail"],$_POST["password"]);
+    $user->singin($_POST["nickname"],$_POST["mail"],$_POST["password"]);
     header("Location: ../../");
 }
 ?>

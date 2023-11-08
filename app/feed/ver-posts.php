@@ -36,18 +36,21 @@ if($_SESSION["online"]){
 
 for($c = 0; $c < count($data);$c++){
     ?>
-    <section class="Post">
-        <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
-        <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>
-        <h4 class="Post--author"><?php if($data[$c]["publish"]== 1){
-            echo "Publicado";
-        }else{
-            echo "Borrador";
-        }
-        ?>  
-        <h4 class="Post--author"></h4>
-        <p class="Post--paragraph"><?=$data[$c]["paragraph"]?></p>
-    </section>
+    <a class="Post--link" href="ver-post.php?id=<?=$data[$c]["idpost"]?>">
+        <section class="Post">
+            <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
+            <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>
+            <h4 class="Post--author"><?php if($data[$c]["publish"]== 1){
+                echo "Publicado";
+            }else{
+                echo "Borrador";
+            }
+            ?>  
+            <h4 class="Post--author"></h4>
+            <p class="Post--paragraph"><?=$data[$c]["paragraph"]?></p>
+        </section>
+    </a>
+    
     
     <?php
     
