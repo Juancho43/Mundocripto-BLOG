@@ -6,6 +6,9 @@ require_once("../templates/head.php");
 require_once("../templates/header.php");
 require("PostController.php");
 
+if(!$_SESSION["online"]){
+    header("Location: feed.php");
+}
 
 $posts = new PostController($link);
 $data = $posts->showOwnPost(0,10);
@@ -24,43 +27,35 @@ $data = $posts->showOwnPost(0,10);
     <div class="Posts">
         
    
+
+
+
 <?php
-
-if($_SESSION["online"]){
-    ?>
-
-  
-    
-    <?php
-}
-
-for($c = 0; $c < count($data);$c++){
-    ?>
-    <a class="Post--link" href="ver-post.php?id=<?=$data[$c]["idpost"]?>">
-        <section class="Post">
-            <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
-            <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>
-            <h4 class="Post--author"><?php if($data[$c]["publish"]== 1){
-                echo "Publicado";
-            }else{
-                echo "Borrador";
-            }
-            ?>  
-            <h4 class="Post--author"></h4>
-            <p class="Post--paragraph"><?=$data[$c]["paragraph"]?></p>
-        </section>
-    </a>
-    
-    
-    <?php
-    
-}
+    for($c = 0; $c < count($data);$c++)
+    {
+        ?>
+            <a class="Post--link" href="ver-post.php?id=<?=$data[$c]["idpost"]?>">
+                <section class="Post">
+                    <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
+                    <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>
+                    <h4 class="Post--author"><?php if($data[$c]["status"]== 1){
+                        echo "Publicado";
+                    }else{
+                        echo "Borrador";
+                    }
+                    ?>  
+                    <h4 class="Post--author"></h4>
+                    <p class="Post--paragraph"><?=$data[$c]["paragraph"]?></p>
+                </section>
+            </a>
+        
+        <?php
+    }
 
 ?>
      </div>
 </main>
 
 <?php 
-
-require_once("../templates/footer.php");
+    require_once("../templates/footer.php");
 ?>

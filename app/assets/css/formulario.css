@@ -3,62 +3,26 @@ main{
 }
 form{
     align-self:center;
-    
-    width:40vh;
+    align-items: center;
     background-color:rgba(255,255,255,.8);
     border-radius: 5px;
+    box-shadow: 3px 3px  10px rgba(26,126,247,1);
     display: flex;
     flex-direction: column;
-    align-items: center;
     font-family: 'Lato', sans-serif;
     padding:15px;
-    box-shadow: 3px 3px  10px ;
-    margin-bottom: 50px;
-    
-}
-
-
-form fieldset{
-    display: flex;
-    flex-direction: column;
-    border:none;
-}
-
-
-.Form{
-max-width:50em;
-}
-.Form--content{
-    display: flex;
-    
-    gap: 2em;
-    overflow-x: scroll;
-    width:100%;
-    
-}
-.Form--part{
-    display: flex;
-    flex-direction: column;
-    
-}
-
-
-.Form--options{
-    display: flex;
-    flex-direction: row;
-}
-
-
-form input::placeholder, form textarea::placeholder{
-    color:#000;
+    width:40vh;
 }
 
 form legend{
     text-decoration: underline;    
 }
 
+form input::placeholder, form textarea::placeholder{
+    color:#000;
+}
 
-form input, form select, form textarea{
+form input, form textarea{
     border: none;
     border-bottom: 3px solid white;
     background: none;
@@ -69,34 +33,65 @@ form input, form select, form textarea{
     
 }
 
-div.contrasenia input{
-    width: calc(330px - 40px);
-}
-form input[type=submit]{
-    border: 4px solid var(--c2);
-    background-color: var(--c2);
-    border-radius: 5px;
+
+form textarea{
+    resize:none;
 }
 
-form a{
+form input[type=submit]{
     align-self: center;
     font-size: .9rem;
-    text-align: center;
-    border: none;
     margin: .6em;
     padding: .6em;
-    transition: 1s;
-    border-radius: 3px;
-    background-color:rgba(105, 71, 71, 0.3);
+    border:none;
+    border-radius:5px;
+    background-color:white;
+    cursor: pointer;
 }
+
+form input[type=submit]:hover{
+    transition:.4s;
+    background-color:rgb(220,220,220);
+}
+    
+
+
 form input:focus{
     outline-color: white;
     background-color:rgba(255, 255, 255, 0.3);
 }
-form input[type=submit]:hover{
-    background-color:rgba(255, 255, 255, 0.7);
-}
-form textarea{
-resize:none;
 
+.Form{
+    max-width:50em;
 }
+.Form--content{
+    display: flex;
+    gap: 2em;
+    overflow-x: scroll;
+    width:100%;
+}
+.Form--part{
+    display: flex;
+    flex-direction: column;
+    border:none;
+}
+
+
+.Form--options{
+    display: flex;
+    flex-direction: row;
+    border:none;
+    gap:1em;
+    
+}
+.Form--options a{
+    padding:.3em;
+    background-color:#fff;
+    border-radius:5px;
+}
+.Form--options a:hover{
+    transition:.4s;
+    background-color:#f7931a;
+    color:#fff;
+}
+

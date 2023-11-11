@@ -25,3 +25,7 @@ consultas (CREATE, INSERT, UPDATE, DROP, ALTER, SELECT)
 Módulo Temático 6: MySQL y PHP
  Conexión a mysql desde php, sesiones, conexiones persistentes a bases de datos,
 consultas desde php.
+
+Objetivos personales:
+-Usar por primera vez clases en PHP.
+-Probar la implementación de la tabla CHANGES en la base de datos.

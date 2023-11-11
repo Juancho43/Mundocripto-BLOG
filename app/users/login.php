@@ -8,10 +8,11 @@ require("UserController.php");
 
 if(isset($_POST["login"])){
     $user = new UserController($link);
+    
     if($user->login($_POST["mail"],$_POST["password"])){
         header("Location: ../../");
     }else{
-        header("Location: ../pages/formulario-login.php");
+        header("Location: ../users/iniciar-sesion.php");
     }
      
     

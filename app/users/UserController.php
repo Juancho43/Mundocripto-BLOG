@@ -1,30 +1,50 @@
 <?php
 class UserController{
     public function __construct($link) {
-    $this->database = $link;
-  }
+      $this->database = $link;
+    }
 
-  private function setChange(){
-
+  private function recordChange($userId,$idEntity,$action,$entity){
+    
+    $sql = "INSERT iNTO changes(iduser,entityid,action,entity)VALUES(?,?,?,?)";
+    
+    $stmt = $this->database->prepare($sql);
+    
+    $entityId=intval($idEntity);
+    $stmt->bind_param("iiss", $userId, $idEntity, $action,$entity);
+    $stmt->execute();
+    $stmt->close();
+    
   }
 
   public function login($mail, $password){
-    $sql = "SELECT * FROM users WHERE email='$mail' AND password = '$password' ";
-    $query = $this->database->query($sql);
     $ok = false;
-    if ($query->num_rows > 0){
-      $iduser = $query->fetch_assoc()['iduser'];
-      $_SESSION["email"] = $mail;
-      $_SESSION["online"] = true;
-      $_SESSION["msg"] = "Bienvenido";
-      $_SESSION["id"] = session_id();
-      $_SESSION["iduser"] = $iduser;
-      $ok=true;
+    $sql = "SELECT password,iduser FROM users WHERE email='$mail'";
+    $query = $this->database->query($sql);
+    if ($query->num_rows > 0)
+    {
+      $data = $query->fetch_assoc();
+      
+      $hashedPassword = $data['password'];
+      if(password_verify($password,$hashedPassword))
+      {
+        $iduser = $data['iduser'];
+        $_SESSION["email"] = $mail;
+        $_SESSION["online"] = true;
+        $_SESSION["msg"] = "Bienvenido";
+        $_SESSION["id"] = session_id();
+        $_SESSION["iduser"] = $iduser;
+        $ok=true;
+      }else{
+        $_SESSION["online"] = false;
+        $_SESSION["msg"] = "Mail o contraseña incorrecta.";
+      }
+      
     }else{
       $_SESSION["online"] = false;
       $_SESSION["msg"] = "Se ha producido un error";
     }    
-    $this->database->close();
+    echo $ok;
     return $ok;
   }
   
@@ -35,21 +55,43 @@ class UserController{
     $_SESSION["msg"] = "Sesión cerrada correctamente";
   }
 
-  private function alreadyExist($param){
-    $ok=false;
+  private function alreadyExist($variable,$param){
+    $ok = false;
+    $sql = "SELECT $param FROM users WHERE $param = ?";
+    $stmt = $this->database->prepare($sql);
+    $stmt->bind_param("s", $variable);
+    $stmt->execute();
+    $stmt->store_result();
+    if($stmt->num_rows() >= 1){
+      $ok = true;
+    }
     
     return $ok;
   }
 
-  public function signin($nickname, $mail, $password){
-    $sql = "INSERT INTO users(nickname,email,password) VALUES (?,?,?);";
-    $stmt = $this->database->prepare($sql);
-    $stmt->bind_param("sss", $nickname, $mail, $password);
-    $stmt->execute();
-    $stmt->close();
-    $this->database->close();
-    $_SESSION["msg"] = "Usuario correctamente registrado.";
-    $this->login($mail,$password);
+  public function singin($nickname, $mail, $password){
+    $ok = false;
+    $mailOK = $this->alreadyExist($mail,"email");
+    $nicknameOK = $this->alreadyExist($nickname,"nickname");
+    if($mailOK == 0  and $nicknameOK == 0)
+    {
+      $sql = "INSERT INTO users(nickname,email,password) VALUES (?,?,?);";
+      $stmt = $this->database->prepare($sql);
+      $stmt->bind_param("sss", $nickname, $mail, $password);
+      if($stmt->execute())
+      {
+        $ok = true;
+        $_SESSION["msg"] = "Usuario correctamente registrado.";
+      }else{
+        $_SESSION["msg"] = "Error";
+      }    
+      $stmt->close();
+    }else{
+      $_SESSION["msg"] = "Error";
+    }
+    $lastUserId =$this->database->insert_id;
+    $this->recordChange($lastUserId,$lastUserId,"new","user");
+    return $ok;
   }
 
   public function searchUserId($mail){
@@ -71,17 +113,20 @@ class UserController{
         while($row = $query->fetch_assoc()) {
             $data[] = $row;
         }
-      } else {
-            $data = "0 results";
       }
-      $this->database->close();
+    
       return $data;
     
-    $this->database->close();
+    
   }
 
-  public function changePassword(){
-    return 0;
+  public function changePassword($newPassword){
+    $sql = "UPDATE users SET password = ? WHERE iduser = $_SESSION[iduser]";
+    $stmt = $this->database->prepare($sql);
+    $stmt->bind_param("s",$newPassword);
+    $stmt->execute();
+    $stmt->close();
+    $_SESSION["msg"] = "Nueva contraseña establecida.";
   }
 
 }

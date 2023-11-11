@@ -20,7 +20,7 @@ if($_SESSION["online"]){
     <section class="Post--nuevo">
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/nuevo-post.php'">Crear publicación.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/ver-posts.php'">Ver publicaciones.</a>
-        <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/ver-comentarios.php'">Ver comentarios.</a>
+        <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/posts/ver-comentarios.php'">Ver comentarios.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/users/profile.php'">Ver perfil.</a>
     </section>
     <?php

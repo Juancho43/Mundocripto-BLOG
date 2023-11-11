@@ -14,8 +14,8 @@ $url = get_url();
         }else{
             ?>
             <ul>
-                <li><a onclick="window.location.href = 'http://<?=$url?>/edi2/app/pages/formulario-login.php'">Iniciar sesión</a></li>
-                <li><a onclick="window.location.href = 'http://<?=$url?>/edi2/app/pages/formulario-singin.php'">Registrarse</a></li>
+                <li><a onclick="window.location.href = 'http://<?=$url?>/edi2/app/users/iniciar-sesion.php'">Iniciar sesión</a></li>
+                <li><a onclick="window.location.href = 'http://<?=$url?>/edi2/app/users/registrarse.php'">Registrarse</a></li>
             </ul>
             
             

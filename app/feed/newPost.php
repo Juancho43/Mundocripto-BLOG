@@ -20,7 +20,7 @@ if(isset($_POST["create"])){
     if(!empty($_POST["publicar"])){
         $post->publishPost($postId);
     }
-
+    header("Location: feed.php");
 }
 ?>
 

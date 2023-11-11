@@ -21,7 +21,6 @@ require_once("../templates/header.php");
         <section class="Form--content">
            <fieldset class="Form--part" id="main1">
                 <textarea name="parrafo1" id="parrafo1" cols="30" rows="10" placeholder="Párrafo 1" required></textarea>
-                <input type="file" name="foto1" id="foto1">
             </fieldset>
         </section>
         <fieldset class="Form--options">
@@ -46,15 +45,12 @@ require_once("../templates/header.php");
         contador++;
         const fieldsetNuevo = fieldset.cloneNode(true);
         const textareaNuevo = fieldsetNuevo.querySelector("textarea");
-        const inputFileNuevo = fieldsetNuevo.querySelector("input[type='file']");
             
         fieldsetNuevo.setAttribute("id","main"+contador);
         textareaNuevo.setAttribute("placeholder","Párrafo"+contador);
         textareaNuevo.setAttribute("id","parrafo"+contador);
         textareaNuevo.setAttribute("name","parrafo"+contador);
         textareaNuevo.value = "";
-        inputFileNuevo.setAttribute("id","foto"+contador);
-        inputFileNuevo.setAttribute("name","foto"+contador);
         
         document.querySelector("section").appendChild(fieldsetNuevo);
     }
