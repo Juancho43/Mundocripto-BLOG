@@ -41,7 +41,7 @@ if($_SESSION["online"]){
 
 for($c = 0; $c < count($data);$c++){
     ?>
-    <a class="Post--link" href="ver-post.php?id=<?=$data[$c]["idpost"]?>">
+    <a class="Post--link" href="../posts/ver-post.php?id=<?=$data[$c]["idpost"]?>">
         <section class="Post">
             <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
             <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>

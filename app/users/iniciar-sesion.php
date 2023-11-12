@@ -19,7 +19,7 @@ require_once("../templates/header.php");
             <input class="Form--submit" type="submit" value="Iniciar sesión" name="login">    
         </fieldset>
         <fieldset class="Form--options">
-            <a href='registrarse.php'>¿No tiene una cuenta?</a>
+            <p><a href='registrarse.php'>¿No tiene una cuenta?</a></p>
         </fieldset>
     </form>        
 </main>

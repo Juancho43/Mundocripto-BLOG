@@ -5,7 +5,9 @@ require("../config/config.php");
 require_once("../templates/head.php");
 require("../controllers/PostController.php");
 
-
+if(!$_SESSION["online"]){
+    header("Location: ../../");
+}
 if(isset($_POST["create"])){
     $post = new PostController($link);
     $title = $_POST["title"];

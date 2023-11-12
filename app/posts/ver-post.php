@@ -1,11 +1,11 @@
 <?php
 session_start();
-
 require("../config/config.php");
 require_once("../templates/head.php");
 require_once("../templates/header.php");
 require("../controllers/PostController.php");
 require("../controllers/CommentController.php");
+
 
 $post = new PostController($link);
 $postData = $post->showPost($_GET["id"]);
@@ -20,8 +20,10 @@ $cantidadComentarios = count($comments);
 <main class="Ver--posts">
 
     <section class="Post">
-        <h3><?=$postData[0]["title"]?></h3>
-        <h4>Creado: <?=formatearFecha($postData[0]["date"]);?></h4>
+        <section class="Post--header">
+            <h3 class="Post--title"><?=$postData[0]["title"]?></h3>
+            <h4 class="Post--date">Creado: <?=formatearFecha($postData[0]["date"]);?></h4>
+        </section>
         <section class="Post--paragraphs">
             <?php
                 for($i=0;$i<count($paragraphs);$i++){
@@ -35,7 +37,7 @@ $cantidadComentarios = count($comments);
             if($_SESSION["online"])
             {
         ?>
-            <form class="newComment" method="POST" action="../posts/newComment.php">
+            <form class="newComment" method="POST" action="newComment.php">
                 <legend>Añadir comentario:</legend>
                 <fieldset>
                     <textarea name="comment" id="" cols="30" rows="10" placeholder="¿Qué opinas de la publicacion?" required></textarea>

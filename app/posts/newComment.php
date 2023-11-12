@@ -1,11 +1,13 @@
 <?php
 session_start();
-
 require("../config/config.php");
 require_once("../templates/head.php");
 require("../controllers/CommentController.php");
 require("../controllers/UserController.php");
 
+if(!$_SESSION["online"]){
+    header("Location: feed.php");
+}
 
 if(isset($_POST["newComment"])){
     $comment = new CommentController($link);

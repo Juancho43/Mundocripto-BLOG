@@ -4,9 +4,25 @@
 }
 
 .Post{
+    display:flex;
+    flex-direction:column;
     width:80%;
     padding:1em;
     margin:1em;
+}
+.Post--header{
+    display: flex;
+    justify-content:space-between;
+    
+}
+.Post--title{
+    text-align:center;
+    align-self: center;
+    font-size:1.3em;
+}
+.Post .Post--paragraph{
+    font-size:1.1em;
+    padding:.3em;
 }
 .Post--Comments{
     background-color: wheat;
@@ -30,10 +46,11 @@
 }
 
 .newComment fieldset{
-    align-items:flex-end;
+    
     border:none;
     display:flex;
     justify-content:space-between;
+    
 }
 
 
@@ -56,12 +73,12 @@
 
 
 .newComment input[type=submit]{
-    align-self: center;
+    align-self:flex-end;
     font-size: .9rem;
     margin: .6em;
     padding: .6em;
     border:none;
-    border-radius:inherit;
+    border-radius:5px;
     background-color:white;
     cursor: pointer;
 }
@@ -75,6 +92,8 @@
 .Comments{
     padding:inherit;
     background: none;
+    font-family:"Poppins",serif;
+    font-size:.9em;
     
 }
 
@@ -86,6 +105,7 @@
     margin: .5em;
 }
 .Comment--info{
+    
     display: flex; 
     justify-content:space-between;
 }
@@ -93,8 +113,137 @@
 
     
 }
+.Posts{
+    display:flex;
+    flex-flow:row wrap;
+    max-width: 90%;
+    gap:1em;
+    padding:1em;
+    
+}
+.Post--nuevo{
+    padding:1em;
+}
+.Post--nuevo a{
+    background-color: aliceblue;
+    font-family: 'Cabin', serif;
+    border-radius:5px;
+    padding: .4em;
+    color:black;   
+    align-self:center;
+    cursor:pointer;
+}
+.Post--nuevo a:hover{
+    transition-duration: .4s;
+    background-color: #f7931a;
+    color:white;
+}
+.Post{
+    background-color: aliceblue;
+    border-radius:5px;
+    padding: 1em;
+    font-family:"poppins",serif;
+}
+.Post:hover{
+    transition: .4s;
+    box-shadow: 3px 3px  10px aliceblue;
+}
+.Post .Post--title{
+    font-family: 'Roboto Slab', serif;
+    text-transform:uppercase;
+    text-decoration:underline;
+    text-align:left;
+}
+
+.Post .Post--author{
+    font-family: 'Roboto Slab', serif;
+    text-transform:lowercase;    
+    text-align:right;
+    font-size:smaller;
+}
+
+.Post .Post--paragraph{
+    font-family: 'Lato', serif;
+    font-size:smaller;
+}
+.Post .Post--paragraph::before{
+    content:"#";
+    color:#f7931a;
+}
+.Post .Post--actions{
+    padding:.3em;
+    display:flex;
+    justify-content:space-around;
+}
+.Post .Post--actions a{
+    font-size:.8em;
+    padding:.5em;
+    color:white;
+    border-radius:5px;
+    background-color: #666565;
+    cursor:pointer;
+}
+
+
+
+@media screen and (max-width: 290px) {
+  .newComment textarea{
+        padding:.1em;
+          margin:0;
+    }
+    
+}
+
+
+@media screen and (max-width: 700px) {
+    main{
+        height: calc(100vh - 6em);
+    }
+    .Post--nuevo{
+        display: flex;
+        gap:5px;
+        justify-content:space-between;
+    }
+    .Posts{
+        flex-direction: column;
+        flex-wrap:nowrap;
+        max-height:80%;
+        overflow:auto;
+    }
+}
+
 @media screen and (max-width: 480px) {
     
-   
-  
+    .Post{
+        overflow:auto;
+        height:70%;
+        margin:1em;
+        margin-bottom:0;
+    }
+    .Post--header{
+        flex-direction:column;
+    }
+   .Post--Comments{
+       margin:1em;
+       margin-top:0;
+       height:auto;
+       overflow:auto;
+   } 
+   .newComment fieldset{
+       flex-direction:column;
+   }
+    .newComment textarea{
+        width:auto;
+    }
+    .newComment input[type=submit]{
+     align-self:flex-start;   
+    }
+      .Comment--info{
+          flex-direction:column;
+          font-size:smaller;
+          
+          
+      }
+    
+    
 }

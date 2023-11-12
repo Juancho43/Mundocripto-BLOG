@@ -1,22 +1,23 @@
-
 <?php
 session_start();
-if(!$_SESSION["online"]){
-    header("Location: ../../");
-}
 require_once("../config/config.php");
 require_once("../templates/head.php");
 require_once("../templates/header.php");
+
+if(!$_SESSION["online"]){
+    header("Location: ../../");
+}
+
 ?>
 
 <link rel="stylesheet" href="../assets/css/formulario.css">
 
 <main>
-    <form class="Form" method="post" action ="newPost.php" enctype="multipart/form-data">
+    <form class="Form" method="post" action ="editPost.php" enctype="multipart/form-data">
         <p class="msg">
             <?=$_SESSION["msg"]?>
         </p>
-        <legend class="Form--legend">Nueva publicación</legend>
+        <legend class="Form--legend">Editar publicación</legend>
         <input type="text" name="title" id="title" placeholder="Título" required>
         <section class="Form--content">
            <fieldset class="Form--part" id="main1">

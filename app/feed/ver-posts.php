@@ -19,7 +19,7 @@ $data = $posts->showOwnPost(0,10);
       <section class="Post--nuevo">
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/nuevo-post.php'">Crear publicación.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/feed.php'">Ver feed.</a>
-        <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/ver-comentarios.php'">Ver comentarios.</a>
+        <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/posts/ver-comentarios.php'">Ver comentarios.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/users/profile.php'">Ver perfil.</a>
     </section>
     <div class="Posts">
@@ -27,7 +27,7 @@ $data = $posts->showOwnPost(0,10);
             for($c = 0; $c < count($data);$c++){
         ?>
             <article class="Post">
-                <a class="Post--link" href="ver-post.php?id=<?=$data[$c]["idpost"]?>">
+                <a class="Post--link" href="../posts/ver-post.php?id=<?=$data[$c]["idpost"]?>">
                     <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
                     <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>
                     <h4 class="Post--author"><?php if($data[$c]["status"]== 1){

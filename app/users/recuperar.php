@@ -3,7 +3,11 @@ session_start();
 require_once("../config/config.php");
 require_once("../templates/head.php");
 require_once("../templates/header.php");
+if(!$_SESSION["online"]){
+    header("Location: ../../");
+}
 ?>
+
 <link rel="stylesheet" href="../assets/css/formulario.css">
 <main>
     <form class="UserForm" method="post" action ="changePassword.php">

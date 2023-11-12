@@ -1,11 +1,13 @@
 <?php
 session_start();
-
 require("../config/config.php");
 require_once("../templates/head.php");
 require_once("../templates/header.php");
 require("../controllers/UserController.php");
 
+if(!$_SESSION["online"]){
+    header("Location: ../../");
+}
 
 $user = new UserController($link);
 $userData = $user->showUser($_SESSION["email"]);
