@@ -3,7 +3,7 @@ session_start();
 
 require("../config/config.php");
 require_once("../templates/head.php");
-require("PostController.php");
+require("../controllers/PostController.php");
 
 
 if(isset($_POST["create"])){

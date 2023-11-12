@@ -58,7 +58,6 @@ class PostController{
             $data[] = $row;
         }
       } 
-      $this->database->close();
       return $data;
   }
 
@@ -76,7 +75,7 @@ class PostController{
             $data[] = $row;
         }
       }
-      $this->database->close();
+      
       return $data;
   }
 

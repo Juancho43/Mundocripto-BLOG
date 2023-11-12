@@ -4,7 +4,7 @@ session_start();
 require("../config/config.php");
 require_once("../templates/head.php");
 require_once("../templates/header.php");
-require("UserController.php");
+require("../controllers/UserController.php");
 
 
 $user = new UserController($link);

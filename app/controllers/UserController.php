@@ -4,7 +4,7 @@ class UserController{
       $this->database = $link;
     }
 
-  private function recordChange($userId,$idEntity,$action,$entity){
+  public function recordChange($userId,$idEntity,$action,$entity){
     
     $sql = "INSERT iNTO changes(iduser,entityid,action,entity)VALUES(?,?,?,?)";
     

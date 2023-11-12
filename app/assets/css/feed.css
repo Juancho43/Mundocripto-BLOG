@@ -1,17 +1,4 @@
-.Ver--posts{
-    align-items:flex-start;
-}
-.Ver--posts .Post{
-    min-width: calc(90vw - 20%);
-    margin: 1em;
-}
-.Ver--posts .Comments{
-    min-width: calc(90vw - 20%);
-    background-color: wheat;
-    border-radius:5px;
-    padding: .4em;
-    margin: 0 0 0 1em;
-}
+
 .Posts{
     display:flex;
     flex-flow:row wrap;
@@ -41,6 +28,7 @@
     background-color: aliceblue;
     border-radius:5px;
     padding: 1em;
+    font-family:"poppins",serif;
 }
 .Post:hover{
     transition: .4s;
@@ -57,12 +45,31 @@
     font-family: 'Roboto Slab', serif;
     text-transform:lowercase;    
     text-align:right;
+    font-size:smaller;
 }
 
 .Post .Post--paragraph{
     font-family: 'Lato', serif;
     font-size:smaller;
 }
+.Post .Post--paragraph::before{
+    content:"#";
+    color:#f7931a;
+}
+.Post .Post--actions{
+    padding:.3em;
+    display:flex;
+    justify-content:space-around;
+}
+.Post .Post--actions a{
+    font-size:.8em;
+    padding:.5em;
+    color:white;
+    border-radius:5px;
+    background-color: #666565;
+    cursor:pointer;
+}
+
 
 @media screen and (min-width: 700px) and (max-height:700px){
 

@@ -4,12 +4,13 @@ session_start();
 require("../config/config.php");
 require_once("../templates/head.php");
 require_once("../templates/header.php");
-require("CommentsController.php");
+require("../controllers/CommentController.php");
+require("../controllers/PostController.php");
 
 
 $post = new PostController($link);
-$postData = $post->showPost($_GET["id"]);
-//$comments = 
+// $postData = $post->showPost($_GET["id"]);
+// $comments = 
 $paragraphs = $post->showParagraps($postData[0]["idpost"]);
 ?>
 <link rel="stylesheet" href="../assets/css/feed.css">
