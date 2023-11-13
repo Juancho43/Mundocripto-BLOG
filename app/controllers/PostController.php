@@ -82,8 +82,10 @@ class PostController{
   public function showPosts($inicio,$final){
     $sql = "SELECT DISTINCT  posts.idpost,posts.title,users.nickname,  (SELECT contents.paragraph FROM contents WHERE contents.idpost = posts.idpost LIMIT 1) AS paragraph FROM posts 
     INNER join users on users.iduser = posts.iduser
+    inner join changes on posts.idpost = changes.entityid
     WHERE posts.status = 1
-    LIMIT $inicio,$final;
+    ORDER BY changes.date DESC
+    LIMIT $inicio,$final
     ";
     $query = $this->database->query($sql);
     $data =array();
@@ -100,9 +102,12 @@ class PostController{
   public function publishPost($idPost){
     $sql = "UPDATE posts SET status = 1 WHERE idpost = '$idPost'";
     $query = $this->database->query($sql);
-    
     $this->recordChange($idPost,"publish","post");
-    
+  }
+  public function unpublishPost($idPost){
+    $sql = "UPDATE posts SET status = 0 WHERE idpost = '$idPost'";
+    $query = $this->database->query($sql);
+    $this->recordChange($idPost,"unpublish","post");
   }
 
   public function createParagraph($idPost,$paragraphs){
@@ -149,6 +154,19 @@ class PostController{
     $stmt->execute();
     $stmt->close();
     
+  }
+
+  public function deletePost($idPost):bool{
+    $ok = false;
+
+    $sql = "DELETE FROM posts where idpost = ?";
+    $stmt = $this->database->prepare($sql);
+    $stmt->bind_param("i", $idPost);
+    if($stmt->execute()){
+      $ok = true;
+    }
+    $stmt->close();
+    return $ok;
   }
 
 }

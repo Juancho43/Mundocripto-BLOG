@@ -37,30 +37,50 @@ $data = $posts->showOwnPosts($pages["inicio"], $pages["final"]);
                 <a class="Post--link" href="../posts/ver-post.php?id=<?=$data[$c]["idpost"]?>">
                     <h3 class="Post--title"><?=$data[$c]["title"]?></h3>
                     <h4 class="Post--author"><?=$data[$c]["nickname"]?></h4>
-                    <h4 class="Post--author"><?php if($data[$c]["status"]== 1){
-                        echo "Publicado";
-                    }else{
-                        echo "Borrador";
-                    }
-                    ?>  
+                    <h4 class="Post--author">
+                        <?php if($data[$c]["status"] == 1)
+                            {
+                            echo "Publicado";
+                            }else{
+                                echo "Borrador";
+                            }
+                        ?>  
                     <h4 class="Post--author"></h4>
                     <p class="Post--paragraph"><?=$data[$c]["paragraph"]?></p>
                 </a>
                 <section class="Post--actions">
-                    <a href="../posts/editar-post.php">Editar</a>
-                    <a id="btn-eliminar">Eliminar</a>
+                        <?php if($data[$c]["status"] == 0){
+                            echo "<a href='../posts/publishPost.php?id=".$data[$c]["idpost"]."'>Publicar</a>";
+                            }else{
+                                echo "<a href='../posts/unpublishPost.php?id=".$data[$c]["idpost"]."'>Despublicar</a>"; 
+                            }
+                        ?> 
+                    <a href="../posts/editar-post.php?id=<?=$data[$c]["idpost"]?>">Editar</a>
+                    <a id="btn-eliminar<?=$data[$c]["idpost"]?>">Eliminar</a>
                 </section>
             </article>       
+            <script>
+                var elemento = document.getElementById("btn-eliminar<?=$data[$c]["idpost"]?>");
+                 
+                elemento.addEventListener("click", function()
+                {
+                    if (window.confirm("¿De verdad quiere eliminar esta publicación?")) 
+                    {
+                        window.location.href="http://<?=$url?>/edi2/app/posts/deletePost.php?id=<?=$data[$c]["idpost"]?>";
+                    }    
+                });
+            </script>
+
         <?php
             }
         ?>
     </div>
     <ul class="Pagination">
         <li><a href="<?php echo "?pageno=1"; ?>"><<</a></li>
-        <li class="<?php if($pageno <= 1){ echo 'Tope'; } ?>">
+        <li class="<?php if($pageno <= 1) ?>">
             <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>"><</a>
         </li>
-        <li class="<?php if($pageno >= $total_pages){ echo 'Tope'; } ?>">
+        <li class="<?php if($pageno >= $total_pages) ?>">
             <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">></a>
         </li>
 
@@ -68,15 +88,7 @@ $data = $posts->showOwnPosts($pages["inicio"], $pages["final"]);
     </ul>
 </main>
 
-<script>
-   var elemento = document.getElementById("btn-eliminar");
-    elemento.addEventListener("click", function(){
-        if (window.confirm("¿De verdad quiere eliminar esta publicación?")) {
-            window.location.href="http://<?=$url?>/edi2/app/posts/deletePost.php";
-        }
-    
-    });
-</script>
+
 
 
 <?php 
