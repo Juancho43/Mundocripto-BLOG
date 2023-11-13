@@ -8,15 +8,22 @@ require("../controllers/PostController.php");
 if(!$_SESSION["online"]){
     header("Location: feed.php");
 }
-$posts = new PostController($link);
-$data = $posts->showOwnPost(0,10);
 
+if(isset($_GET['pageno'])) {
+    $pageno = $_GET['pageno'];
+} else {
+    $pageno = 1;
+}
+$posts = new PostController($link);
+$pages = $posts->PostPagination($pageno);
+$total_pages = $pages["totalPages"];
+$data = $posts->showOwnPosts($pages["inicio"], $pages["final"]);
 
 ?>
 <link rel="stylesheet" href="../assets/css/feed.css">
 
 <main>
-      <section class="Post--nuevo">
+    <section class="Post--nuevo">
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/nuevo-post.php'">Crear publicación.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/feed/feed.php'">Ver feed.</a>
         <a onclick="window.location.href = 'http://<?=$url?>/edi2/app/posts/ver-comentarios.php'">Ver comentarios.</a>
@@ -48,6 +55,17 @@ $data = $posts->showOwnPost(0,10);
             }
         ?>
     </div>
+    <ul class="Pagination">
+        <li><a href="<?php echo "?pageno=1"; ?>"><<</a></li>
+        <li class="<?php if($pageno <= 1){ echo 'Tope'; } ?>">
+            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>"><</a>
+        </li>
+        <li class="<?php if($pageno >= $total_pages){ echo 'Tope'; } ?>">
+            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">></a>
+        </li>
+
+        <li><a href="<?php echo "?pageno=$total_pages"; ?>">>></a></li>
+    </ul>
 </main>
 
 <script>

@@ -3,9 +3,29 @@ class PostController{
     public function __construct($link) {
       $this->database = $link;
     }
+
+    public function PostPagination($pagina){
+      $sql = "SELECT COUNT(*) as cantidad FROM posts;";
+      $query = $this->database->query($sql);
+      $data = array();
+      if ($query->num_rows > 0) {
+         
+          while($row = $query->fetch_assoc()) {
+              $data[]= $row;
+          }
+        }
+      $inicio = ($pagina-1)  * constant("CANT_POSTS");
+      $final = $pagina  * constant("CANT_POSTS");
+      $totalPages = ceil($data[0]["cantidad"]/ constant("CANT_POSTS"));
+      $data["inicio"] = $inicio;
+      $data["final"] = $final;
+      $data["totalPages"] = $totalPages;
+      return $data;
+    }
+
+
   public function showParagraps($idPost){
-    $sql ="SELECT contents.paragraph from contents where idpost = '$idPost';
-    ";
+    $sql ="SELECT contents.paragraph from contents where idpost = '$idPost'";
      $query = $this->database->query($sql);
      $data =array();
      if ($query->num_rows > 0) {
@@ -13,8 +33,6 @@ class PostController{
          while($row = $query->fetch_assoc()) {
              $data[] = $row;
          }
-       } else {
-             $data = "0 results";
        }
        
        return $data;
@@ -41,7 +59,7 @@ class PostController{
        return $data;
   }
   
-  public function showOwnPost($inicio,$final){
+  public function showOwnPosts($inicio,$final){
     $userId = intval($_SESSION["iduser"]);
     $sql = "SELECT DISTINCT posts.title, users.nickname, posts.status, posts.idpost,
     (SELECT contents.paragraph FROM contents WHERE contents.idpost = posts.idpost LIMIT 1) AS paragraph

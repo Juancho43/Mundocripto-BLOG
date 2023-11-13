@@ -1,11 +1,11 @@
 <?php
-
 define("HOST_DB", "localhost"); 
 define("USER_DB", "root");
 define("PASS_DB", "");
 define("NAME_DB", "mundocripto");
 define("CANT_POSTS", 10);
- 
+define("CANT_COMMENTS", 5);
+
 $link = new mysqli(
    constant("HOST_DB"), 
    constant("USER_DB"),

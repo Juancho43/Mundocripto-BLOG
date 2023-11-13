@@ -61,32 +61,44 @@
     display:flex;
     justify-content:space-around;
 }
-.Post .Post--actions a{
-    font-size:.8em;
-    padding:.5em;
-    color:white;
-    border-radius:5px;
-    background-color: #666565;
+.Post .Post--actions a:hover{
+    transition:4s;
+    color:#f7931a;
     cursor:pointer;
 }
-
-
+.Pagination{    
+    display: flex;
+    list-style:none;
+    font-family:"Poppins",serif;
+}
+.Pagination a{
+    margin:2em;
+    color:#f7931a;
+    background-color:#656565;
+    padding:.2em;
+    border-radius:5px;
+    width:2em;
+    display:block;
+    text-align:center;
+}
 
 @media screen and (max-width: 270px) {
     .Post--nuevo{
         flex-direction: column;
         justify-content: stretch;
-        
     }
     
 }
+
 @media screen and (max-width: 380px) {
     .Post--nuevo{
         overflow:auto;
-        gap:2px;
-        
+        gap:2px;        
     }
-    
+    .Pagination {
+        height: 10%;
+        align-self:flex-start ;
+    }
 }
 
 @media screen and (max-width: 700px) {
@@ -103,5 +115,12 @@
         flex-wrap:nowrap;
         max-height:80%;
         overflow:auto;
+    }
+    .Pagination{
+        align-self:center;
+    }
+    .Pagination a{
+         width:1em;
+        padding:4px;
     }
 }

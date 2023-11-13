@@ -7,8 +7,15 @@ require_once("../templates/header.php");
 require("../controllers/PostController.php");
 
 
+if(isset($_GET['pageno'])) {
+    $pageno = $_GET['pageno'];
+} else {
+    $pageno = 1;
+}
 $posts = new PostController($link);
-$data = $posts->showPosts(0,10);
+$pages = $posts->PostPagination($pageno);
+$total_pages = $pages["totalPages"];
+$data = $posts->showPosts( $pages["inicio"], $pages["final"]);
 
 
 ?>
@@ -54,6 +61,17 @@ for($c = 0; $c < count($data);$c++){
 
 ?>
      </div>
+     <ul class="Pagination">
+            <li><a href="<?php echo "?pageno=1"; ?>"><<</a></li>
+            <li class="<?php if($pageno <= 1){ echo 'Tope'; } ?>">
+                <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>"><</a>
+            </li>
+            <li class="<?php if($pageno >= $total_pages){ echo 'Tope'; } ?>">
+                <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">></a>
+            </li>
+
+            <li><a href="<?php echo "?pageno=$total_pages"; ?>">>></a></li>
+        </ul>
 </main>
 
 <?php 

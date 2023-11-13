@@ -17,7 +17,7 @@ body{
 }
 header,footer{
     user-select: none;
-    background-color: rgb(102, 101, 101);
+    background-color: #656565;
     height: 5%;
     display: flex;
     justify-content: space-between;

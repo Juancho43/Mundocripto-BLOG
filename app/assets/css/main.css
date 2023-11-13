@@ -14,13 +14,7 @@ a{
     color:black;
     text-decoration: none;  
 }
-a.texto{
-    color: #fff;
-    text-shadow: 3px 3px 5px #f7931a;
-}
-a.texto:hover{
-    color: #F7931A;
-}
+
 main{
     background: linear-gradient(217deg, rgba(247,147,26,1) 23%, rgba(26,126,247,1) 69%);
     background-size: 250%;
@@ -31,24 +25,9 @@ main{
     animation-duration: 9s;
     animation-iteration-count:infinite;
     
+    
 }
-.texto{
-    user-select: none;
-    box-sizing: content-box;
-    background-color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 100px;
-    font-family: 'Lato', sans-serif;
-    animation-name: texto1;
-    animation-duration: 2s;
-    animation-iteration-count: 1;
-    transition: 1.4s;
-}
-.texto::before{
-    content: "#";
-    color:#d4d4d4;
-}
+
 
 
 @media screen and (min-width: 700px) and (max-height:700px){
