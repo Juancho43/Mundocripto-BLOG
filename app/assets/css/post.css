@@ -68,6 +68,8 @@
     overflow:auto;
     resize:none;
     width:100%;
+    height:3em;
+    
 }
 
 
@@ -93,23 +95,58 @@
 .Comments{
     padding:inherit;
     background: none;
-    font-family:"Poppins",serif;
+    font-family:"Cabin",serif;
     font-size:.9em;
     
 }
-
+.Ver--comentarios .Comments{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
 .Comment{
     background-color:#ffffff94;
     border-radius:inherit;
     padding:inherit;
     border-radius:5px;
     margin: .5em;
+    width:70%;
 }
 .Comment--info{
     
     display: flex; 
     justify-content:space-between;
+    
 }
+.Comment--info p{
+    color:red;
+    justify-self:flex-end;
+    font-weight:600;
+}
+.Ver--comentarios .Comment{
+    background-color:wheat;
+}
+.Ver--comentarios .Comment--info{
+    text-indent:.6em;
+}
+.Ver--comentarios .Comment--body{
+    text-indent:2em;
+}
+
+.Ver--comentarios .Comment--body::before{
+    content:"-";
+    color:#f7931a
+}
+.Ver--comentarios .Comment--post::before{
+    content:"#";
+    color:#f7931a
+}
+.Ver--comentarios .Comment--post{
+    text-indent:1em;
+    font-weight:500;
+}
+
+
 @media screen and (max-width: 700px) {
 
     

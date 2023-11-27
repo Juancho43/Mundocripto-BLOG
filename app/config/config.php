@@ -28,7 +28,7 @@ function formatearFecha($fechaHora){
    $mes = date_format($fecha, "m");
    $ano = date_format($fecha, "Y");
    $hora = date_format($fecha, "H:i");
-   $fechaMostrar = "Fecha: " . $dia . "/" . $mes . "/" . $ano . " Hora: " . $hora;
+   $fechaMostrar =  $dia . "/" . $mes . "/" . $ano . " Hora: " . $hora;
    return $fechaMostrar;
 }
 

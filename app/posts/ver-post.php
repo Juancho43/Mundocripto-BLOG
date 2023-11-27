@@ -68,10 +68,29 @@ $cantidadComentarios = count($comments);
                             <div class="Comment--info">
                                 <h4><?=$comments[$i]["nickname"]?> dijo:</h4>
                                 <h4><?=formatearFecha($comments[$i]["date"]);?></h4>
+                                <?php
+                                    if($_SESSION["online"])
+                                    {
+                                        if($_SESSION["iduser"] == $comments[$i]["author"] )
+                                        {
+                                            echo "<p title='Eliminar comentario.' id='btn-eliminar".$comments[$i]["idcomment"]."'>X<p>";
+                                        }
+                                    }
+
+                                ?>
                             </div>
                             
                             <p class='Comment-body'><?=$comments[$i]["comment"]?></p>
                         </div>
+                        <script>
+                            var elemento = document.getElementById("btn-eliminar<?=$comments[$i]["idcomment"]?>");
+                            elemento.addEventListener("click", function(){
+                                if (window.confirm("¿Quiere eliminar este comentario?")) {
+                                    window.location.href="http://<?=$url?>/edi2/app/posts/deleteComment.php?id=<?=$comments[$i]["idcomment"]?>&idPost=<?=$_GET["id"]?>";
+                                }
+
+                            });
+                        </script>
                         <?php
                     }
                 }else{
@@ -80,7 +99,7 @@ $cantidadComentarios = count($comments);
                 
             ?>
         </article>
-        
+      
     </section>
 
 

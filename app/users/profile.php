@@ -19,14 +19,17 @@ $userData = $user->showUser($_SESSION["email"]);
 
     <section class="Profile">
         <h2>Perfil</h2>
-        <article>
-            
+        <article class="Profile--info">
             <p>Nickname: <?=$userData[0]["nickname"]?></p>
-            <p>Creado: <?=$userData[0]["date"]?></p>
             <p>Email: <?=$_SESSION["email"]?></p>
+        </article>
+        <article class="Profile--changes">
+            <p>Creado: <?=formatearFecha($userData[0]["date"])?></p>
+            <p>Cambio de nickname: </p>
+            <p>Cambio de contraseña: </p>
+        </article>
+        <article class="Profile--actions">
             <p><a href="recuperar.php">Cambiar contraseña.</a></p>
-            <p>Último cambio de contraseña: </p>
-            <p>Último cambio de nickname: </p>
         </article>
     </section>
 

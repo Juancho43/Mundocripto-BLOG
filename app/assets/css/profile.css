@@ -1,29 +1,21 @@
 
 .Ver--Profile{
-    
-    align-items:flex-start;
+    align-items:center;
 }
 .Profile{
     margin:2em;
     background-color: aliceblue;
     border-radius:5px;
     padding: 2em;
+    display:flex;
+    flex-direction:column;
+    gap:.7em;
+}
+.Profile .Profile--info{
+    text-indent:1em;
+}
+.Profile .Profile--actions{
+    display:flex;
+    font-weight:700;
 }
 
-.Post .Post--title{
-    font-family: 'Roboto Slab', serif;
-    text-transform:uppercase;
-    text-decoration:underline;
-    text-align:left;
-}
-
-.Post .Post--author{
-    font-family: 'Roboto Slab', serif;
-    text-transform:lowercase;    
-    text-align:right;
-}
-
-.Post .Post--paragraph{
-    font-family: 'Lato', serif;
-    font-size:smaller;
-}
