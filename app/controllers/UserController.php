@@ -6,12 +6,13 @@ class UserController{
 
   public function recordChange($userId,$idEntity,$action,$entity){
     
-    $sql = "INSERT iNTO changes(iduser,entityid,action,entity)VALUES(?,?,?,?)";
+    $sql = "INSERT iNTO changes(iduser,entityid,action,entity,date)VALUES(?,?,?,?,?)";
     
     $stmt = $this->database->prepare($sql);
-    
+$iduser=intval($userId);
     $entityId=intval($idEntity);
-    $stmt->bind_param("iiss", $userId, $idEntity, $action,$entity);
+    $date = date('Y/m/d H:i:s');
+    $stmt->bind_param("iisss", $iduser, $idEntity, $action,$entity,$date);
     $stmt->execute();
     $stmt->close();
     
@@ -55,7 +56,7 @@ class UserController{
     $_SESSION["msg"] = "Sesión cerrada correctamente";
   }
 
-  private function alreadyExist($variable,$param){
+  public function alreadyExist($variable,$param){
     $ok = false;
     $sql = "SELECT $param FROM users WHERE $param = ?";
     $stmt = $this->database->prepare($sql);
@@ -104,7 +105,7 @@ class UserController{
 
   public function showUser($mail){
     $sql = "SELECT changes.date, nickname FROM users 
-    INNER JOIN changes on changes.entityid = users.iduser
+    INNER JOIN changes on changes.entityid = users.iduser and changes.entity = 'user'
     WHERE email='$mail'";
     $query = $this->database->query($sql);
     $data =array();
@@ -119,15 +120,32 @@ class UserController{
     
     
   }
-
-  public function changePassword($newPassword){
-    $sql = "UPDATE users SET password = ? WHERE iduser = $_SESSION[iduser]";
+ public function changePassword($newPassword){
+    $sql = "UPDATE users SET password = ? WHERE iduser = ?";
     $stmt = $this->database->prepare($sql);
-    $stmt->bind_param("s",$newPassword);
+    $stmt->bind_param("si",$newPassword,$_SESSION["iduser"]);
     $stmt->execute();
     $stmt->close();
-    $_SESSION["msg"] = "Nueva contraseña establecida.";
   }
+
+  public function changeNickname($newNickname){
+    $sql = "UPDATE users SET nickname = ? WHERE iduser = ?";
+    $stmt = $this->database->prepare($sql);
+    $stmt->bind_param("si",$newNickname,$_SESSION["iduser"]);
+    $stmt->execute();
+    $stmt->close();
+    
+    
+  }
+  public function deleteUser($id){
+    $sql = "DELETE FROM users WHERE iduser = ?";
+    $stmt = $this->database->prepare($sql);
+    $stmt->bind_param("i",$id);
+    $stmt->execute();
+    $stmt->close();
+    
+  }
+
 
 }
 ?>

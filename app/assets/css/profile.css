@@ -15,7 +15,8 @@
     text-indent:1em;
 }
 .Profile .Profile--actions{
-    display:flex;
+    display: flex;
+    flex-direction: column;
     font-weight:700;
 }
 
