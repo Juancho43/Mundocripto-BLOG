@@ -9,8 +9,23 @@ require("../controllers/CommentController.php");
 if(!$_SESSION["online"]){
     header("Location: ../../");
 }
+
+
+if(isset($_GET['pageno'])) {
+    $pageno = $_GET['pageno'];
+} else {
+    $pageno = 1;
+}
+
+
+
 $comment = new CommentController($link);
-$comments = $comment->getComments($_SESSION["iduser"]);
+$pages = $comment->CommentPagination($pageno, $_SESSION["iduser"]);
+$comments = $comment->getComments($pages["inicio"], $pages["final"]);
+$total_pages = $pages["totalPages"];
+
+
+
 ?>
 <link rel="stylesheet" href="../assets/css/feed.css">
 <link rel="stylesheet" href="../assets/css/post.css">
@@ -19,7 +34,8 @@ $comments = $comment->getComments($_SESSION["iduser"]);
 
     
         <?php
-            for($c = 0; $c < count($comments);$c++){
+            if(count($comments) > 0){
+                for($c = 0; $c < count($comments);$c++){
         ?>
             <article class="Comment">
                 <p class="Comment--info">
@@ -50,6 +66,8 @@ $comments = $comment->getComments($_SESSION["iduser"]);
                 </script>
             </article>
         <?php
+            }}else{
+                echo"<p>Sin comentarios</p>";
             }
         ?>
 
@@ -58,7 +76,17 @@ $comments = $comment->getComments($_SESSION["iduser"]);
         
 
        
+    <ul class="Pagination">
+        <li><a href="<?php echo "?pageno=1"; ?>"><<</a></li>
+        <li class="<?php if($pageno <= 1)?>">
+            <a href="<?php if($pageno <= 1){ echo '#'; } else { echo "?pageno=".($pageno - 1); } ?>"><</a>
+        </li>
+        <li class="<?php if($pageno >= $total_pages)?>">
+            <a href="<?php if($pageno >= $total_pages){ echo '#'; } else { echo "?pageno=".($pageno + 1); } ?>">></a>
+        </li>
 
+        <li><a href="<?php echo "?pageno=$total_pages"; ?>">>></a></li>
+    </ul>
 </main>
 
 <?php 

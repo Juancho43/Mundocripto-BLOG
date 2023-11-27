@@ -8,7 +8,11 @@ require_once("../templates/header.php");
 <main>
     <form class="UserForm" method="post" action ="login.php">
         <p class="msg">
-            <?=$_SESSION["msg"]?>
+            <?php
+                if (isset($_SESSION["msg"])) {
+                    echo"<p>".$_SESSION["msg"]."</p>";
+                }
+            ?>
         </p>
         <legend>Iniciar sesión</legend>
         <fieldset class="Form--part">
