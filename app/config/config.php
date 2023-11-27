@@ -35,5 +35,5 @@ function formatearFecha($fechaHora){
 
  if(empty($_SESSION["online"])){
    $_SESSION["online"] = false;
-   $_SESSION["msg"] = "Para poder interacturar inicie sesión.";
+   
 }

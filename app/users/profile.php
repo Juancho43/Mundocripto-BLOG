@@ -51,7 +51,7 @@ $userData = $user->showUser($_SESSION["email"]);
             var elemento2 = document.getElementById("btn-eliminar");
             elemento2.addEventListener("click", function(){
                 if (window.confirm("¿Quieres eliminar tu cuenta y toda la Información asociada?")) {
-                    window.location.href="http://<?=$url?>/app/users/deleteUser.php";
+                    window.location.href="http://<?=$url?>/edi2/app/users/deleteUser.php";
                 }
             
             });

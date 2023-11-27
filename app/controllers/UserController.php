@@ -9,10 +9,10 @@ class UserController{
     $sql = "INSERT iNTO changes(iduser,entityid,action,entity,date)VALUES(?,?,?,?,?)";
     
     $stmt = $this->database->prepare($sql);
-$iduser=intval($userId);
+    $iduser=intval($userId);
     $entityId=intval($idEntity);
     $date = date('Y/m/d H:i:s');
-    $stmt->bind_param("iisss", $iduser, $idEntity, $action,$entity,$date);
+    $stmt->bind_param("iisss", $iduser, $entityId, $action,$entity,$date);
     $stmt->execute();
     $stmt->close();
     
@@ -71,28 +71,15 @@ $iduser=intval($userId);
   }
 
   public function singin($nickname, $mail, $password){
-    $ok = false;
-    $mailOK = $this->alreadyExist($mail,"email");
-    $nicknameOK = $this->alreadyExist($nickname,"nickname");
-    if($mailOK == 0  and $nicknameOK == 0)
-    {
+    
+    
       $sql = "INSERT INTO users(nickname,email,password) VALUES (?,?,?);";
       $stmt = $this->database->prepare($sql);
       $stmt->bind_param("sss", $nickname, $mail, $password);
-      if($stmt->execute())
-      {
-        $ok = true;
-        $_SESSION["msg"] = "Usuario correctamente registrado.";
-      }else{
-        $_SESSION["msg"] = "Error";
-      }    
+      $stmt->execute();
       $stmt->close();
-    }else{
-      $_SESSION["msg"] = "Error";
-    }
-    $lastUserId =$this->database->insert_id;
-    $this->recordChange($lastUserId,$lastUserId,"new","user");
-    return $ok;
+      $lastUserId =$this->database->insert_id;
+      return $lastUserId;
   }
 
   public function searchUserId($mail){
